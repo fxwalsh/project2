@@ -1,4 +1,4 @@
-## Synopsis
+## Project Synopsis
 
 A short introduction and/ or overview that explains **what** the project is. 
 
