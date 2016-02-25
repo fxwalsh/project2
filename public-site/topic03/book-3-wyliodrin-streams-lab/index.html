@@ -1,0 +1,238 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+  <div class="ui container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="ui fixed top pointing inverted menu labmenu">
+  <header class="header item">
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Getting Started with Galileo
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="wyliodrin-lab-02">
+        wyliodrin-lab-02
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+    </div>
+</div>
+
+<br><br>
+
+  <div  class="ui tab segment lab" data-tab="wyliodrin-lab-02">
+    <h1>Programming with Sketch and Streams</h1>
+<p>This tutorial will show you how to control the colour of an RGB LED using Sketch and a programming language called Streams.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h2>Equipment</h2>
+<ul>
+<li>Intel Galileo Gen 2 connected to Wyliodrin</li>
+<li>An RGB led (from the Arduino workshop)</li>
+<li>Ethernet cable</li>
+<li>Laptop</li>
+</ul>
+<h2>Goal</h2>
+<ul>
+<li>Light up an RGB LED in different colors. </li>
+<li>Control the intensity and colour using Pulse Width Modulation (PWM).</li>
+</ul>
+<h2>The Circuit</h2>
+<p>Connect the RGB LED to the Galileo as shown in the following diagram:
+<img alt="RGB LED" src="img/rgb_led_bb.png" title="RGB LED Circuit"></p>
+<p>The RGB LED combines of  three LEDs: a red one, a green one and a blue one. Each of these LEDs is controlled by a PWM pin (indicated by a "~" on the board), so that it's brightness cna be controlled. As these are promary colours, by controling the "brightness" of each LED, the overall colour can be set.
+<img alt="Common Anode RGB LED" src="img/led.jpg" title="Common Anode RGB LED"></p>
+<h2>Make it Work (Sketch)</h2>
+<p>The following sketch will cycle through Red, Green, and Blue:</p>
+<pre><code>#include &lt;Arduino.h&gt;
+int redPin = 3;
+int greenPin = 5;
+int bluePin = 6;
+
+void setColor(int red, int green, int blue)
+{
+  analogWrite(redPin,255-red);
+  analogWrite(greenPin,255-green);
+  analogWrite(bluePin, 255-blue);  
+}
+
+void setup()
+{
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);  
+}
+
+void loop()
+{
+  setColor(255, 0, 0);  // red
+  delay(1000);
+  setColor(0, 255, 0);  // green
+  delay(1000);
+  setColor(0, 0, 255);  // blue
+  delay(1000);
+  setColor(255, 255, 0);  // yellow
+  delay(1000);  
+  setColor(80, 0, 80);  // purple
+  delay(1000);
+  setColor(0, 255, 255);  // aqua
+  delay(1000);
+}
+</code></pre>
+
+<p>Push the code to your device. CHALLENGE: Change the code to include your own colours.</p>
+<h3>Make it Work (Streams)</h3>
+<p>In this section we'll use a programming approach callled <em>streams</em> to control the RGB LED.  Wyliodrin provides the ability to write Streams programs. </p>
+<ul>
+<li>
+<p>Create a new app in Wyliodrin called <em>RGB Streams</em>
+<img alt="Create App" src="img/create_app.png" title="Create App"></p>
+</li>
+<li>
+<p>Create the following streams program by selecting and configuring the correct nodes:
+<img alt="Stream program" src="img/rgb_streams.png" title="Stream program"></p>
+</li>
+<li>
+<p>Now create a <em>Dashboard</em> to supply the signals (i.e. red, green blue)  for the program.
+<img alt="RGB Dashboard" src="img/dashboard.png" title="RGB Dashboard"></p>
+</li>
+<li>
+<p>If all is well, you should now be able to delpoy the application to the Galileo and control it using the dashboard.</p>
+</li>
+</ul>
+<h3>Further Challenges:</h3>
+<ul>
+<li>Make a Streams application and use it to create a project that will light up a LED for 3 seconds at one press of a button.</li>
+<li>Do the same, using a switch from the dashboard instead of the button.</li>
+<li>Connect a button that you will have to press in order to turn on an LED and press again to turn the LED off.</li>
+<li>The same, only that if you have pressed the button once, for the next two seconds, pressing again the button will have no effect. In a nutshell, once you press the button, it will become inactive for the next two seconds.</li>
+<li>The same, but using the switch from the dashboard instead of the button.</li>
+</ul>
+<h3>References</h3>
+<p><a href="http://ocw.cs.pub.ro/courses/iot/labs/04">Programming with Streams lab, IoT Summer School 2015, Innovations lab</a> 
+<a href="https://learn.adafruit.com/adafruit-arduino-lesson-3-rgb-leds/arduino-sketch">Adafruit Arduino Lessons</a>  </p>
+  </div>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
+
+
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Frank Walsh (fxwalsh@wit.ie)
+. Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
+    </div>
+  </div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("ui image");
+
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
+  });
+})    </script>
+
+  </body>
+ </html>
