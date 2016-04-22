@@ -83,20 +83,21 @@ figcaption
 
 
 <div class="ui four doubling stackable cards">
-      <a class="ui card" href="./talk-1/project2-intro.pdf">
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="film large icon"></i></div>
-      <div class="header"> Project II </div>
+        <div class="right floated meta"> <i class="film large icon"></i></div>
+        <div class="header"> Project II </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./talk-1/project2-intro.png">
-    </div>
+    <a href="./talk-1/project2-intro.pdf">
+      <img class="ui bordered rounded image" src="./talk-1/project2-intro.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This talk introduces  Project, covering the content and structure of the module.</p>
       </div>
     </div>
-  </a>
+  </div>
+
 
   </div>
    </div>
@@ -119,6 +120,7 @@ figcaption
 $(document).ready(function()
 {
   $("img").addClass ("ui image");
+  $('.ui.embed').embed();
 
   var images = $(".lab img");
   jQuery.each(images, function(i)  {
@@ -131,6 +133,8 @@ $(document).ready(function()
       $(div_label).insertBefore(images[i]);
     }
   });
+
+
 })    </script>
 
   </body>

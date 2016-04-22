@@ -83,65 +83,85 @@ figcaption
 
 <div class="ui four doubling stackable cards">
 
-    <a class="ui card" href="./topic01/index.html">
+    <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
-      <div class="header"> Introduction to Project II </div>
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> Introduction to Project II </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./topic01/./talk-1/project2-intro.png">
-    </div>
+    <a href="./topic01/index.html">
+      <img class="ui bordered rounded image" src="./topic01/./talk-1/project2-intro.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This topic introduces project II. You will cover the general ethos of the project module, the content and what you can expect to learn over the lifetime of the module.</p>
       </div>
     </div>
-  </a>
+  </div>
 
-    <a class="ui card" href="./topic02/index.html">
+
+    <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
-      <div class="header"> Version Control Systems </div>
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> Version Control Systems </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./topic02/./talk-a-git-intro/version-control1.png">
-    </div>
+    <a href="./topic02/index.html">
+      <img class="ui bordered rounded image" src="./topic02/./talk-a-git-intro/version-control1.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This topic introduces distributed version control. You will begin to develop of a digital portfolio of your work using a distributed version control system. </p>
       </div>
     </div>
-  </a>
+  </div>
 
-    <a class="ui card" href="./topic03/index.html">
+
+    <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
-      <div class="header"> Getting Started with Galileo </div>
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> Getting Started with Galileo </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./topic03/./talk-a-galileo-intro/galileo-intro-1.png">
-    </div>
+    <a href="./topic03/index.html">
+      <img class="ui bordered rounded image" src="./topic03/./talk-a-galileo-intro/galileo-intro-1.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This topic introduces the Intel Galileo development board. Initially you will use it in "Arduino" mode.</p>
       </div>
     </div>
-  </a>
+  </div>
 
-    <a class="ui card" href="./topic04/index.html">
+
+    <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
-      <div class="header"> Presentation Skills </div>
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> Presentation Skills </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./topic04/./talk-a-presenting-talk/presentation.png">
-    </div>
+    <a href="./topic04/index.html">
+      <img class="ui bordered rounded image" src="./topic04/./talk-a-presenting-talk/presentation.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This topic introduces presentation and communiction skills. </p>
       </div>
     </div>
-  </a>
+  </div>
+
+
+    <div class="ui card">
+    <div class="content">
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> IoT & Web Servers </div>
+    </div>
+    <a href="./topic05/index.html">
+      <img class="ui bordered rounded image" src="./topic05/./talk-a-Web-Servers/web_servers.png">
+    </a>
+    <div class="content">
+      <div class="description">
+         <p>This topic introduces Web Servers and discusses their use with IoT devices. </p>
+      </div>
+    </div>
+  </div>
+
 
 </div>
 
@@ -165,6 +185,7 @@ figcaption
 $(document).ready(function()
 {
   $("img").addClass ("ui image");
+  $('.ui.embed').embed();
 
   var images = $(".lab img");
   jQuery.each(images, function(i)  {
@@ -177,6 +198,8 @@ $(document).ready(function()
       $(div_label).insertBefore(images[i]);
     }
   });
+
+
 })    </script>
 
   </body>

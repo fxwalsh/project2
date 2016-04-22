@@ -83,80 +83,85 @@ figcaption
 
 
 <div class="ui four doubling stackable cards">
-      <a class="ui card" href="./talk-a-galileo-intro/galileo-intro-1.pdf">
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="film large icon"></i></div>
-      <div class="header"> Introduction to Intel Galileo </div>
+        <div class="right floated meta"> <i class="film large icon"></i></div>
+        <div class="header"> Introduction to Intel Galileo </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./talk-a-galileo-intro/galileo-intro-1.png">
-    </div>
+    <a href="./talk-a-galileo-intro/galileo-intro-1.pdf">
+      <img class="ui bordered rounded image" src="./talk-a-galileo-intro/galileo-intro-1.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>The Intel Galileo is a devlopment board you can use to make IoT projects. This talk introduces the Galileo and how to set it up in "Arduino" Mode.</p>
       </div>
     </div>
-  </a>
+  </div>
 
-      <a class="ui card" href="./talk-b-wyliodrin-programming/programming.pdf">
+
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="film large icon"></i></div>
-      <div class="header"> Programming using the Wyliodrin Platform </div>
+        <div class="right floated meta"> <i class="film large icon"></i></div>
+        <div class="header"> Programming using the Wyliodrin Platform </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./talk-b-wyliodrin-programming/programming.png">
-    </div>
+    <a href="./talk-b-wyliodrin-programming/programming.pdf">
+      <img class="ui bordered rounded image" src="./talk-b-wyliodrin-programming/programming.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This talk covers the programming options available using the Wyliodrin platform.</p>
       </div>
     </div>
-  </a>
+  </div>
 
-      <a class="ui card" href="book-1-assignment-lab/index.html">
+
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="lab large icon"></i></div>
-      <div class="header"> Assignment </div>
+        <div class="right floated meta"> <i class="lab large icon"></i></div>
+        <div class="header"> Assignment </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./book-1-assignment-lab/img/main.png">
-    </div>
+    <a href="book-1-assignment-lab/index.html">
+      <img class="ui bordered rounded image" src="./book-1-assignment-lab/img/main.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>You will propose and create your own IoT project!</p>
       </div>
     </div>
-  </a>
+  </div>
 
-      <a class="ui card" href="book-2-wyliodrin-lab/index.html">
+
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="lab large icon"></i></div>
-      <div class="header"> wyliodrin-lab-01 </div>
+        <div class="right floated meta"> <i class="lab large icon"></i></div>
+        <div class="header"> wyliodrin-lab-01 </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./book-2-wyliodrin-lab/img/main.jpg">
-    </div>
+    <a href="book-2-wyliodrin-lab/index.html">
+      <img class="ui bordered rounded image" src="./book-2-wyliodrin-lab/img/main.jpg">
+    </a>
     <div class="content">
       <div class="description">
          <p>This tutorial will show you how to setup your Intel Galileo to work with Wyliodrin.</p>
       </div>
     </div>
-  </a>
+  </div>
 
-      <a class="ui card" href="book-3-wyliodrin-streams-lab/index.html">
+
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="lab large icon"></i></div>
-      <div class="header"> wyliodrin-lab-02 </div>
+        <div class="right floated meta"> <i class="lab large icon"></i></div>
+        <div class="header"> wyliodrin-lab-02 </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./book-3-wyliodrin-streams-lab/img/main.png">
-    </div>
+    <a href="book-3-wyliodrin-streams-lab/index.html">
+      <img class="ui bordered rounded image" src="./book-3-wyliodrin-streams-lab/img/main.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This tutorial will show you how to control the colour of an RGB LED using Sketch and a programming language called Streams.</p>
       </div>
     </div>
-  </a>
+  </div>
+
 
   </div>
    </div>
@@ -179,6 +184,7 @@ figcaption
 $(document).ready(function()
 {
   $("img").addClass ("ui image");
+  $('.ui.embed').embed();
 
   var images = $(".lab img");
   jQuery.each(images, function(i)  {
@@ -191,6 +197,8 @@ $(document).ready(function()
       $(div_label).insertBefore(images[i]);
     }
   });
+
+
 })    </script>
 
   </body>
